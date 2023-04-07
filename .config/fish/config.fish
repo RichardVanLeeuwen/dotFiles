@@ -1,9 +1,9 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
+if test (tty) = "/dev/tty1"
+    sway
 end
 
 function fish_greeting
-    echo Hello $USER !
+    echo Hello $USER!
 end
 
 set TERM "xterm-256color"
@@ -18,5 +18,9 @@ alias push='git push origin'
 alias pull='git pull origin'
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+set -x PATH $PATH:$HOME/.local/bin  
+set -x PATH $PATH:$HOME/.cargo/bin  
+set -x PATH $PATH:$HOME/repositories/flutter/bin
 
 starship init fish | source
