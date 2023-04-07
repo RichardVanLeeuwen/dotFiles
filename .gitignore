@@ -1,0 +1,13 @@
+# Setup giIgnore as a whitelist
+*
+!*/
+
+!.gitignore
+
+!.config/alacritty/
+!.config/fish/
+!.config/nvim/
+.config/nvim/lazy.lock
+!.config/sway/
+!.config/waybar/
+!.config/starship.toml
