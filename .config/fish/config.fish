@@ -19,8 +19,9 @@ alias pull='git pull origin'
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-set -x PATH $PATH:$HOME/.local/bin  
-set -x PATH $PATH:$HOME/.cargo/bin  
-set -x PATH $PATH:$HOME/repositories/flutter/bin
+set -x PATH $PATH $HOME/.local/bin  
+set -x PATH $PATH /usr/bin/nvim
+set -x PATH $PATH $HOME/.cargo/bin  
+set -x PATH $PATH $HOME/repositories/flutter/bin
 
 starship init fish | source
