@@ -19,7 +19,24 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.termguicolors = true
+vim.opt.wrap = true
+vim.opt.linebreak = true
 
 vim.opt.scrolloff = 8
 
 vim.opt.updatetime = 150
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+
+vim.o.clipboard = 'unnamedplus'
+vim.o.breakindent = true
+vim.o.completeopt = 'menuone,noselect'
+
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+    group = highlight_group,
+    pattern = '*',
+})

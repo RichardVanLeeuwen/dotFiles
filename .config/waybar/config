@@ -1,6 +1,7 @@
 {
   "layer": "top",
   "position": "top",
+  "width": 1680,
   "modules-left": [
     "cpu",
     "temperature",
@@ -21,7 +22,7 @@
   "custom/weather": {
     "tooltip": false,
     "min-length": 5,
-    "exec": "curl 'https://wttr.in/Houten?m&format='%t''",
+    "exec": "curl 'https://wttr.in/vianen?m&format='%t''",
     "interval": 3600
   },
   "battery": {
@@ -149,7 +150,7 @@
   },
   "disk": {
     "tooltip": false,
-    "path": "/",
+    "path": "/home/richard",
     "interval": 60,
     "min-length": 5,
     "format": " {percentage_used}%",

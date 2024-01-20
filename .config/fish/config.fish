@@ -23,5 +23,16 @@ set -x PATH $PATH $HOME/.local/bin
 set -x PATH $PATH /usr/bin/nvim
 set -x PATH $PATH $HOME/.cargo/bin  
 set -x PATH $PATH $HOME/repositories/flutter/bin
+set ZELLIJ_AUTO_ATTACH true
+
+set zj_sessions (zellij ls | count)
+if set -q ZELLIJ
+else
+    if test (zellij ls | count) -gt 0
+        zellij a -c
+    else
+        zellij
+    end
+end
 
 starship init fish | source
