@@ -7,7 +7,7 @@
 !.config/alacritty/**
 !.config/fish/**
 !.config/nvim/**
-.config/nvim/lazy.lock
 !.config/sway/**
 !.config/waybar/**
+!.config/zellij/**
 !.config/starship.toml
