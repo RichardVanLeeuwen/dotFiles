@@ -11,3 +11,4 @@
 !.config/waybar/**
 !.config/zellij/**
 !.config/starship.toml
+!nixos/**
