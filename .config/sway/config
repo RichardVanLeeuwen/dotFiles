@@ -99,7 +99,7 @@ client.urgent           $bg-urgent    $bg-urgent   $text          $bar $bar
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
     # Screenshotting
-    bindsym $mod+Shift+o exec grim -g "$(slurp)"
+    bindsym $mod+Shift+s exec grim -g "$(slurp)"
 #
 # Moving around:
 #

@@ -2,7 +2,7 @@ format = """$directory$git_branch$git_state$cmd_duration$fill$time
 $character"""
 
 [character]
-success_symbol = "[➜](bold green)" 
+success_symbol = "[➜](bold green)"
 error_symbol = "[✗](bold red)"
 
 [cmd_duration]
@@ -72,6 +72,7 @@ format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
 [git_branch]
 format = '\[[$symbol$branch]($style)\]'
+truncation_length = 30
 
 [git_status]
 disabled = true

@@ -170,5 +170,32 @@ return {
             filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
             cmd = { "typescript-language-server", "--stdio" }
         })
-    end
+
+        local util = require 'lspconfig.util';
+        local configs = require 'lspconfig.configs';
+
+        if not configs['omt-odt-language-server'] then
+            configs['omt-odt-language-server'] = {
+                default_config = {
+                    cmd = { 'omt-odt-language-server' },
+                    filetypes = { 'omt', 'odt' },
+                    root_dir = util.find_git_ancestor,
+                    single_file_support = true,
+                },
+                docs = {
+                    description = [[
+            ]],
+                    default_config = {
+                        cmd = { 'omt-odt-language-server' },
+                        filetypes = { 'omt', 'odt' },
+                        root_dir = util.find_git_ancestor,
+                        single_file_support = true,
+                    },
+                }
+
+            }
+        end
+
+        lspconfig['omt-odt-language-server'].setup {}
+    end,
 }
