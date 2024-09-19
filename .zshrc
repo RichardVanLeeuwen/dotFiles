@@ -56,6 +56,8 @@ alias ....="cd ../../.."
 alias please='sudo $(fc -ln -1)'
 alias ls="exa -ag --color=always --group-directories-first"
 
+alias setTheme="source ~/.config/scripts/setTheme.sh"
+
 export ZELLIJ_AUTO_ATTACH true
 eval "$(zellij setup --generate-auto-start zsh)"
 eval "$(starship init zsh)"

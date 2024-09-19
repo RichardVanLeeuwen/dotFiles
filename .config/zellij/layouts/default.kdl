@@ -14,5 +14,4 @@ layout {
             args "."
         }
     }
-    tab name="Repos" cwd="~/repositories"
 }
