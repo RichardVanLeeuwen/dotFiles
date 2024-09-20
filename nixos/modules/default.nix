@@ -3,8 +3,8 @@
   # a host can import this single file and has acces to all modules
   imports = [
     ./3d.nix
-    ./browser.nix
     ./dev
+    ./desktop.nix
     ./fonts.nix
     ./nvidia.nix
     ./photo.nix
