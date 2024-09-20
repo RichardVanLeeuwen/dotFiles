@@ -7,34 +7,38 @@
   };
 
   outputs =
-    { self
-    , nixpkgs
-    , nixpkgs-unstable
-    , ...
-    } @ inputs:
-    let
+    { self,
+      nixpkgs,
+      ...
+    } @ inputs: let
       inherit (self) outputs;
+      username = "richard";
     in
     {
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
-      nixosConfigurations = {
-        nixPC =
-          let
-            username = "richard";
-          in
-          nixpkgs.lib.nixosSystem {
-            specialArgs = { inherit inputs outputs username; };
-            modules = [ ./hosts/nixPC/default.nix ];
-          };
-        nixRasp =
-          let
-            username = "richard";
-          in
-          nixpkgs.lib.nixosSystem {
-            specialArgs = { inherit inputs outputs username; };
-            modules = [ ./hosts/nixRasp/default.nix ];
-          };
-      };
+      # import the overlay (doesn't activate it yet)
+      overlays = import ./overlays {inherit inputs;};
+        # NixOS configuration entrypoint
+        # Available through 'nixos-rebuild --flake .#your-hostname'
+        nixosConfigurations = {
+          nixPC =
+            nixpkgs.lib.nixosSystem {
+              system = "x86_64-linux";
+              specialArgs = { inherit inputs outputs; };
+              modules = [ 
+                ./hosts/nixPC/default.nix
+                ./users/${username}.nix
+              ];
+            };
+          nixRasp =
+            nixpkgs.lib.nixosSystem {
+              specialArgs = {
+                inherit username;
+              };
+              modules = [ 
+                ./hosts/nixRasp/default.nix
+                ./users/${username}.nix
+              ];
+            };
+        };
     };
 }

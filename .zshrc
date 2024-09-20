@@ -55,6 +55,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias please='sudo $(fc -ln -1)'
 alias ls="exa -ag --color=always --group-directories-first"
+alias vi="nvim"
 
 alias setTheme="source ~/.config/scripts/setTheme.sh"
 

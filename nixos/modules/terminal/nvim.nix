@@ -1,5 +1,6 @@
 { pkgs, config, ... }: {
-  environment.systemPackages = with pkgs; [
-    nvim
-  ];
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
 }
