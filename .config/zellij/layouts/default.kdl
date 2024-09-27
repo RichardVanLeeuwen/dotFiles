@@ -10,7 +10,7 @@ layout {
     }
     tab name="Main" focus=true
     tab name="Config" cwd="~/.config" split_direction="Vertical" {
-        pane command="vim" {
+        pane command="nvim" {
             args "."
         }
     }

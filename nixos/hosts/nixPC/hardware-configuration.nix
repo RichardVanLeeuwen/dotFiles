@@ -27,26 +27,26 @@
   fileSystems."/backup" =
     { device = "/dev/disk/by-uuid/E17B-5AE1";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" "rw" "user"];
+      options = [ "fmask=0022" "dmask=0022" "uid=1000" "gid=1000" ];
     };
 
   fileSystems."/data" =
     { device = "/dev/disk/by-uuid/65FD-1CC5";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" "rw" "user" ];
+      options = [ "fmask=0022" "dmask=0022" "uid=1000" "gid=1000" ];
     };
 
 # connecting to a smb drive
   fileSystems."/nas/richard" =
     { device = "//192.168.1.183/richard";
       fsType = "cifs";
-      options = [ "credentials=/etc/credentials/.nas"];
+      options = [ "credentials=/etc/credentials/.nas" "uid=1000" "gid=1000" ];
     };
 
   fileSystems."/nas/linda" =
     { device = "//192.168.1.183/linda";
       fsType = "cifs";
-      options = [ "credentials=/etc/credentials/.nas"];
+      options = [ "credentials=/etc/credentials/.nas" "uid=1000" "gid=1000" ];
     };
     
   swapDevices = [ ];

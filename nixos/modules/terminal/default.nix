@@ -3,18 +3,9 @@
     ./nvim.nix
   ];
 
-  options = {
-    alaritty.enable = lib.mkDefault "Install alacritty";
-  };
+  config.programs.zsh.enable = true;
 
-  programs.zsh.enable = true;
-
-  environment.systemPackages = lib.mkIf config.alacritty.enable [
-    pkgs.alacritty
-  ];
-
-  environment.systemPackages = with pkgs; [
-    alacritty
+  config.environment.systemPackages = with pkgs; [
     btop
     eza
     git
@@ -24,3 +15,4 @@
     zoxide
   ];
 }
+

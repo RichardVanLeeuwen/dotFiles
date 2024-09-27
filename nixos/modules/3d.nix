@@ -4,9 +4,11 @@
     "3d".enable = lib.mkEnableOption "Set up 3d editing tools";
   };
 
-  environment.systemPackages = lib.mkIf config."3d".enable [
-    pkgs.blender
-    pkgs.cura
-  ];
+  config = lib.mkIf config."3d".enable {
+    environment.systemPackages = with pkgs; [
+      blender
+      cura
+    ];
+  };
 }
 

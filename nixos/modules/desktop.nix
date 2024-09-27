@@ -1,8 +1,13 @@
-{ pkgs, ... }: {
-  environment.systemPackages = with pkgs; [
-    obsidian
+{ pkgs, lib, config, ... }: {
+  options = {
+    desktop.enable = lib.mkDefault "Install desktop apps";
+  };
+
+  config.environment.systemPackages = with pkgs; [
+    alacritty
     keepass
+    obsidian
   ];
 
-  programs.firefox.enable = true;
+  config.programs.firefox.enable = true;
 }
