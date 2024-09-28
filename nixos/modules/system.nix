@@ -1,6 +1,6 @@
 { pkgs, lib, ... }: {
   nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [ "nix-command" "flakes" ];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -13,5 +13,11 @@
 
   i18n.extraLocaleSettings = {
     LC_ALL = "en_US.UTF-8";
+  };
+
+  programs.git = {
+    enable = true;
+    userName = "RichardVanLeeuwen";
+    userEmail = "rbavleeuwen@gmail.com";
   };
 }

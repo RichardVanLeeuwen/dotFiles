@@ -6,6 +6,7 @@
     ./dev
     ./desktop.nix
     ./fonts.nix
+    ./hosting.nix
     ./nvidia.nix
     ./photo.nix
     ./system.nix

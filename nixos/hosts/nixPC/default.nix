@@ -2,10 +2,11 @@
 
   imports = [
     ../../modules
+    ../../modules/desktop.nix
     ./hardware-configuration.nix
   ];
 
-# allows use of pkgs.unstable to get updates earlier
+  # allows use of pkgs.unstable to get updates earlier
   nixpkgs.overlays = [
     outputs.overlays.unstable-packages
   ];
@@ -21,26 +22,6 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sdb";
   boot.loader.grub.useOSProber = true;
-
-  # Configure X11
-  services.xserver = {
-    enable = true;
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
-    displayManager = {
-      gdm.enable = true;
-    };
-    desktopManager.gnome.enable = true;
-  };
-
-  services.displayManager = {
-    autoLogin = {
-      enable = true;
-      user = "richard";
-    };
-  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

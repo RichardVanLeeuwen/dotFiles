@@ -1,9 +1,12 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, inputs, outputs, username, ... }: {
 
   imports = [
-    ../../modules/default.nix
+    ../../modules
     ./hardware-configuration.nix
   ];
 
-  networking.hostname = "nixRasp";
+  desktop.enable = false;
+  hosting.enable = true;
+
+  system.stateVersion = "24.05";
 }
