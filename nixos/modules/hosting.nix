@@ -1,7 +1,7 @@
 { config, lib, pkgs, username, ... }: {
 
   options = {
-    hosting.enable = lib.mkEnableOption "Setup hosting software";
+    hosting.enable = lib.mkOptionDefault false;
   };
 
   config = lib.mkIf config.hosting.enable {

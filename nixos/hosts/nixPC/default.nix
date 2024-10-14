@@ -11,6 +11,8 @@
     outputs.overlays.unstable-packages
   ];
 
+  networking.hostName = "nixPC";
+
   # setup nvidia graphics card
   nvidia.enable = true;
   # install photo editing software
@@ -24,7 +26,10 @@
   boot.loader.grub.useOSProber = true;
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.cnijfilter2 ];
+  };
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;

@@ -1,13 +1,14 @@
 { pkgs, lib, config, ... }: {
 
   options = {
-    desktop.enable = lib.mkDefault "Install desktop apps";
+    desktop.enable = lib.mkDefault true;
   };
 
   config = lib.mkIf config.desktop.enable {
     environment.systemPackages = with pkgs; [
       alacritty
       keepass
+      libreoffice-still
       obsidian
     ];
 

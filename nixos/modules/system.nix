@@ -17,7 +17,5 @@
 
   programs.git = {
     enable = true;
-    userName = "RichardVanLeeuwen";
-    userEmail = "rbavleeuwen@gmail.com";
   };
 }
