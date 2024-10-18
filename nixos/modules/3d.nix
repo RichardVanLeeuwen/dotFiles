@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }: {
-  # not active by default
   options = {
-    "3d".enable = lib.mkEnableOption "Set up 3d editing tools";
+    "3d".enable = lib.mkEnableOption "3d";
   };
 
   config = lib.mkIf config."3d".enable {

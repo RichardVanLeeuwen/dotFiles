@@ -14,11 +14,11 @@
   networking.hostName = "nixPC";
 
   # setup nvidia graphics card
-  nvidia.enable = true;
+  nvidia.enable = lib.mkForce true;
   # install photo editing software
-  photo.enable = true;
+  photo.enable = lib.mkForce true;
   # install 3d editing software
-  "3d".enable = true;
+  "3d".enable = lib.mkForce true;
 
   # Bootloader.
   boot.loader.grub.enable = true;

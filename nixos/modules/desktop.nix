@@ -1,7 +1,6 @@
 { pkgs, lib, config, ... }: {
-
   options = {
-    desktop.enable = lib.mkDefault true;
+    desktop.enable = lib.mkEnableOption "desktop";
   };
 
   config = lib.mkIf config.desktop.enable {
