@@ -1,0 +1,13 @@
+#!/bin/bash
+
+lines=$(find ~/repositories -name "node_modules" -prune)
+regex='/[^/]+/[^/]+$'
+
+for line in $lines; do
+    if [[ $line =~ $regex ]]; then
+        echo "$BASH_REMATCH"
+        ln -s $line ~/test$BASH_REMATCH
+    fi
+done
+
+
