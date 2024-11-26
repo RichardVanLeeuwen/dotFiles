@@ -1,2 +1,4 @@
 nixos/result
 .config/zsh/.zsh_history
+.config/zsh/.zprofile
+
