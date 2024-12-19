@@ -2,7 +2,6 @@
 
   imports = [
     ../../modules
-    ../../modules/desktop.nix
     ./hardware-configuration.nix
   ];
 

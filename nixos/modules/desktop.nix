@@ -9,9 +9,13 @@
       keepass
       libreoffice-still
       obsidian
+      spotify
     ];
 
     programs.firefox.enable = true;
+
+    # Open port for spotify connect discovery
+    networking.firewall.allowedUDPPorts = [ 5353 ];
 
     # Configure X11
     services.xserver = {
