@@ -30,8 +30,11 @@ export VISUAL="nvim"
 export TERM="alacritty"
 
 # Path stuff
-export PATH="${PATH}:$HOME/.local/bin"
+export PATH="$HOME/.local/bin:${PATH}"
 export PATH="${PATH}:$HOME/.cargo/bin"
+
+# allow global installation of npm packages
+export npm_config_prefix="$HOME/.local"
 
 # tab completion
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' # Case insensitive tab completion
