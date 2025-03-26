@@ -29,6 +29,9 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export TERM="alacritty"
 
+# Docker socket
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+
 # Path stuff
 export PATH="$HOME/.local/bin:${PATH}"
 export PATH="${PATH}:$HOME/.cargo/bin"
