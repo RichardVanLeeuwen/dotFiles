@@ -6,7 +6,7 @@
   config = lib.mkIf config."3d".enable {
     environment.systemPackages = with pkgs; [
       blender
-      cura
+      #cura
     ];
   };
 }

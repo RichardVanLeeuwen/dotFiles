@@ -5,5 +5,8 @@
 
   environment.systemPackages = with pkgs; [
     unstable.neovim
+    gcc
+    ripgrep
+    fzf
   ];
 }

@@ -1,7 +1,9 @@
 { pkgs, config, ... }: {
 
   environment.systemPackages = with pkgs; [
-    nodePackages_latest.nodejs
+    nodejs_22
     qmk
+    gcc
+    rustup
   ];
 }

@@ -4,9 +4,9 @@
   };
 
   config.fonts.packages = with pkgs; [
-    # nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })
     noto-fonts
-    fira-code-nerdfont
+    fira-code
     jetbrains-mono
   ];
 }

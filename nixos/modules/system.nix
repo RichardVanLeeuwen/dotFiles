@@ -3,6 +3,13 @@
     experimental-features = [ "nix-command" "flakes" ];
   };
 
+  # auto delete builds
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   # Set your time zone.
