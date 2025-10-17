@@ -39,6 +39,11 @@ export PATH="${PATH}:$HOME/.cargo/bin"
 # allow global installation of npm packages
 export npm_config_prefix="$HOME/.local"
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
 # tab completion
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' # Case insensitive tab completion
 zstyle ':completion:*' list-colors "${(s.:.)--color=auto}"                        # Colored completion (different colors for dirs/files/etc)
@@ -55,6 +60,7 @@ zstyle :compinstall $ZDOTDIR/.zshrc
 autoload -Uz compinit
 compinit
 
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 export ZELLIJ_AUTO_ATTACH true
 eval "$(zellij setup --generate-auto-start zsh)"
 eval "$(starship init zsh)"

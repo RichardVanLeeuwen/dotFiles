@@ -5,5 +5,8 @@ alias please='sudo $(fc -ln -1)'
 alias ls="exa -ag --color=always --group-directories-first"
 alias vi="nvim"
 
-alias setTheme="source ~/.config/scripts/setTheme.sh"
+nv () { NVIM_APPNAME="nvim_new" nvim $@ }
+
+source ~/.config/scripts/setTheme.sh
+source ~/.config/scripts/fotoimport.sh
 
