@@ -62,6 +62,5 @@ compinit
 
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 export ZELLIJ_AUTO_ATTACH true
-eval "$(zellij setup --generate-auto-start zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"

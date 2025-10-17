@@ -262,7 +262,4 @@ exec alacritty
 exec dropbox
 exec spotify
 
-# start kMonad
-exec kmonad ~/.config/kMonad/home-row-mods.kbd
-
 include /etc/sway/config.d/*
