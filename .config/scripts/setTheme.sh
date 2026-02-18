@@ -1,11 +1,21 @@
 setTheme() {
   if [[ "$1" == "dark" ]]; then
-    sed -i "1 s/gruvbox_light/gruvbox_dark/" ~/.config/alacritty/alacritty.toml
-    sed -i "s/\"\"/\"hard\"/" ~/.config/nvim/lua/plugins/colorscheme.lua
-    sed -i "s/\"light\"/\"dark\"/" ~/.config/nvim/lua/plugins/colorscheme.lua
+    # Alacritty
+    cp ~/.config/alacritty/gruvbox_dark.toml ~/.config/alacritty/current_theme.toml
+    # KDE theme
+    plasma-apply-colorscheme BreezeDark
   else
-    sed -i "1 s/gruvbox_dark/gruvbox_light/" ~/.config/alacritty/alacritty.toml
-    sed -i "s/\"hard\"/\"\"/" ~/.config/nvim/lua/plugins/colorscheme.lua
-    sed -i "s/\"dark\"/\"light\"/" ~/.config/nvim/lua/plugins/colorscheme.lua
+    # Alacritty
+    cp ~/.config/alacritty/gruvbox_light.toml ~/.config/alacritty/current_theme.toml
+    # KDE theme
+    plasma-apply-colorscheme BreezeLight
   fi
+}
+
+light(){
+  setTheme 'light' &> /dev/null
+}
+
+dark(){
+  setTheme 'dark' &> /dev/null
 }

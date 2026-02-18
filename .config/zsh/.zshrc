@@ -3,6 +3,8 @@
 [ -f "${ZDOTDIR}/aliasrc" ] && source "${ZDOTDIR}/aliasrc"
 [ -f "${ZDOTDIR}/optionrc" ] && source "${ZDOTDIR}/optionrc"
 
+if [ "$TMUX" = "" ]; then tmux; fi
+
 # Keybindings
 ## Up and down searching
 zmodload zsh/terminfo
