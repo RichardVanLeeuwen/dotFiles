@@ -37,7 +37,7 @@ return {
         }
       }
     })
-
+    vim.keymap.set('n', 'gd', "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "[G]oto [D]efinition" })
     -- See `:help telescope.builtin`
     vim.keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "[?] Find recently opened files" })
     vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "[F]ind existing [B]uffers" })

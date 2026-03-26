@@ -1,5 +1,6 @@
 -- netrW
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "netrw" })
+-- Disabled due to currently trying Oil.nvim
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "netrw" })
 
 -- running lua
 vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "e[X]ecute file" })
@@ -11,6 +12,10 @@ vim.keymap.set("n", "<leader>cj", "<cmd>cnext<CR>", { desc = "[N]ext" })
 vim.keymap.set("n", "<leader>ck", "<cmd>cprev<CR>", { desc = "[P]rev" })
 vim.keymap.set("n", "<leader>co", "<cmd>cope<CR>", { desc = "[O]pen" })
 vim.keymap.set("n", "<leader>cc", "<cmd>cclose<CR>", { desc = "[C]lose" })
+
+-- inlay hints
+vim.keymap.set("n", "<leader>di", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
+  { desc = "toggle [I]nlay hints" })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
