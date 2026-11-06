@@ -24,7 +24,7 @@
         nixServer =
           nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
-            specialArgs = { inherit inputs outputs; };
+            specialArgs = { inherit inputs outputs username; };
             modules = [
               ./hosts/nixServer/default.nix
               ./users/${username}.nix
@@ -33,7 +33,7 @@
         nixPC =
           nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
-            specialArgs = { inherit inputs outputs; };
+            specialArgs = { inherit inputs outputs username; };
             modules = [
               ./hosts/nixPC/default.nix
               ./users/${username}.nix
