@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "ahci" "ohci_pci" "ehci_pci" "pata_atiixp" "xhci_pci" "usbhid" "sd_mod" "sr_mod" ];
@@ -14,41 +15,58 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/5a3a9181-2f51-44ae-aade-51fc1cdd7bdf";
+    {
+      device = "/dev/disk/by-uuid/5a3a9181-2f51-44ae-aade-51fc1cdd7bdf";
       fsType = "ext4";
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/3e2171eb-ae97-42e7-944b-f6ecf4934cfb";
+    {
+      device = "/dev/disk/by-uuid/3e2171eb-ae97-42e7-944b-f6ecf4934cfb";
       fsType = "ext4";
     };
 
-# vfat doesn't have file permissions so we have to add the rw and user flags
+  # vfat doesn't have file permissions so we have to add the rw and user flags
   fileSystems."/backup" =
-    { device = "/dev/disk/by-uuid/E17B-5AE1";
+    {
+      device = "/dev/disk/by-uuid/E17B-5AE1";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" "uid=1000" "gid=1000" ];
     };
 
   fileSystems."/data" =
-    { device = "/dev/disk/by-uuid/65FD-1CC5";
+    {
+      device = "/dev/disk/by-uuid/65FD-1CC5";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" "uid=1000" "gid=1000" ];
     };
 
-# connecting to a smb drive
+  environment.systemPackages = [ pkgs.cifs-utils ];
+
+  # connecting to a smb drive
   fileSystems."/nas/richard" =
-    { device = "//192.168.1.183/richard";
+    {
+      device = "//10.0.20.183/richard";
       fsType = "cifs";
-      options = [ "credentials=/etc/credentials/.nas" "uid=1000" "gid=1000" ];
+      options = [
+        "credentials=/etc/credentials/.nas"
+        "uid=1000"
+        "gid=1000"
+        "x-systemd.automount"
+        "noauto"
+        "x-systemd.idle-timeout=60"
+        "x-systemd.device-timeout=5s"
+        "x-systemd.mount-timeout=5s"
+      ];
     };
 
   fileSystems."/nas/linda" =
-    { device = "//192.168.1.183/linda";
+    {
+      device = "//10.0.20.183/linda";
       fsType = "cifs";
-      options = [ "credentials=/etc/credentials/.nas" "uid=1000" "gid=1000" ];
+      options = [ "credentials=/etc/credentials/.nas" "uid=1000" "gid=1000" "x-systemd.automount" "noauto" "x-systemd.idle-timeout=60" "x-systemd.device-timeout=5s" "x-systemd.mount-timeout=5s" ];
     };
-    
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
