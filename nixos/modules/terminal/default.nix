@@ -8,6 +8,7 @@
   environment.systemPackages = with pkgs; [
     btop
     eza
+    fastfetch
     ripgrep
     starship
     zellij
