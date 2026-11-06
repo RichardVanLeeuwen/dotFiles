@@ -7,7 +7,7 @@
       # OpenCL support
       intel-compute-runtime
 
-      vaapiIntel
+      intel-vaapi-driver
     ];
   };
 
