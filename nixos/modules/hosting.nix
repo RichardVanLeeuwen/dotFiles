@@ -4,7 +4,11 @@
   };
 
   config = lib.mkIf config.hosting.enable {
-    virtualisation.docker.enable = true;
+    environment.variables.DOCKER_HOST = "unix:///var/run/docker.sock";
+    virtualisation.docker = {
+      enable = true;
+      extraOptions = "--data-root /home/${username}/docker";
+    };
 
     users.extraGroups.docker.members = [ username ];
   };
