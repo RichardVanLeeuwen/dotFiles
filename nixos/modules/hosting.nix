@@ -4,7 +4,6 @@
   };
 
   config = lib.mkIf config.hosting.enable {
-    environment.variables.DOCKER_HOST = "unix:///var/run/docker.sock";
     virtualisation.docker = {
       enable = true;
       extraOptions = "--data-root /home/${username}/docker";
